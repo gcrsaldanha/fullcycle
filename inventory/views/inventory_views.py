@@ -1,7 +1,9 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes
 from rest_framework.exceptions import ValidationError
 from rest_framework.request import Request
 from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
 from inventory.serializers.inventory_serializers import InventoryOperationSerializer
 from inventory.services.inventory_service import InventoryService, InventoryServiceException
 
@@ -9,6 +11,7 @@ from inventory.services.inventory_service import InventoryService, InventoryServ
 # TODO: apply DRY to this code and service.
 
 @api_view(['POST'])
+@authentication_classes([JWTAuthentication])
 def add_to_inventory(request: Request) -> Response:
     operation_serializer = InventoryOperationSerializer(data=request.data)
     operation_serializer.is_valid(raise_exception=True)
@@ -26,6 +29,7 @@ def add_to_inventory(request: Request) -> Response:
 
 
 @api_view(['POST'])
+@authentication_classes([JWTAuthentication])
 def remove_from_inventory(request: Request) -> Response:
     operation_serializer = InventoryOperationSerializer(data=request.data)
     operation_serializer.is_valid(raise_exception=True)

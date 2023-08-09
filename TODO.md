@@ -1,4 +1,8 @@
-- [ ] Auth: JWT
+- [ ] Auth: JWT - APIs are created but unsure how to configure this with rest framework.
+- [ ] `docker-compose up`
+- [ ] Crie dados falsos para categorias e produtos. Crie pelo menos 5 categorias e 150 produtos já previamente cadastrados no banco de dados.
+- [ ] Test pagination (add tests)
+- [ ] Test service
 - [ ] Linters, black, mypy, git precommit
 - [ ] CD (GitHub Actions) -> Deploy API
 - [ ] Multiple environments configuration (for production, development and test)

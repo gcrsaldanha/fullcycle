@@ -5,6 +5,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from common.pagination import CustomPagination, PaginationSerializer
 from inventory.models.product import Product, CategoryDoesNotExist
@@ -16,6 +17,8 @@ class ProductsListCreateView(ListCreateAPIView):
     pagination_serializer_class = PaginationSerializer
     queryset = Product.objects.prefetch_related("category").all().order_by("name")
     serializer_class = ProductSerializer
+
+    authentication_classes = [JWTAuthentication]
 
     def create(self, request, *args, **kwargs):
         serializer = CreateProductSerializer(data=request.data)
