@@ -1,9 +1,37 @@
-# Running
+# Notes
 
-`docker-compose build`
-`docker-compose up`
+> Disclaimer: use `{"username": "admin", "password": "123456}` for authentication.
+
+I wasn't able to make the custom JWT work yet (to use `email` instead of `username`).
 
 
+# Running on Docker
+
+```bash
+docker-compose build
+docker-compose up
+```
+
+
+# Running on host
+
+```bash
+pip install -r requirements.txt
+DJANGO_SETTINGS_MODULE=stock_system.dev_settings ./runserver.sh
+```
+
+```bash
+# django shell
+DJANGO_SETTINGS_MODULE=stock_system.dev_settings python manage.py shell 
+```
+
+
+# Running tests
+
+```bash
+pip install -r requirements.txt
+pytest
+```
 
 
 > Copiado de https://github.com/codeedu-tests/fullcycle-tutor-python-test/blob/main/README.md

@@ -6,3 +6,6 @@ pytest==7.4.0
 pytest-django==4.5.2
 mysql-connector-python==8.1.0
 psycopg[binary]==3.1.10
+faker==19.3.0
+django-extensions==3.2.3
+tzdata==2023.3
