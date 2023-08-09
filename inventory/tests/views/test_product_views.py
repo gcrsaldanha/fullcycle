@@ -13,9 +13,7 @@ class TestProductsListView:
     ) -> None:
         category = Category.objects.create(name="Alimentos")
         product_1 = Product.objects.create(name="Arroz", category=category, quantity=10)
-        product_2 = Product.objects.create(
-            name="Feijão", category=category, quantity=20
-        )
+        product_2 = Product.objects.create(name="Feijão", category=category, quantity=20)
 
         response = client.get("/products/")
 
@@ -61,9 +59,7 @@ class TestProductsCreateView:
     ) -> None:
         category = Category.objects.create(name="Alimentos")
 
-        response = client.post(
-            "/products/", {"name": "Arroz", "category_id": category.id}
-        )
+        response = client.post("/products/", {"name": "Arroz", "category_id": category.id})
 
         assert response.status_code == 201
 
@@ -100,17 +96,13 @@ class TestProductsCreateView:
 
 @pytest.mark.django_db
 class TestProductRetrieveView:
-    def test_when_product_does_not_exist_then_return_not_found(
-        self, client: APIClient
-    ) -> None:
+    def test_when_product_does_not_exist_then_return_not_found(self, client: APIClient) -> None:
         response = client.get("/products/1/")
 
         assert response.status_code == 404
         assert response.data == {"detail": "Not found."}
 
-    def test_when_product_exists_then_return_serialized_product(
-        self, client: APIClient
-    ) -> None:
+    def test_when_product_exists_then_return_serialized_product(self, client: APIClient) -> None:
         category = Category.objects.create(name="Alimentos")
         product = Product.objects.create(name="Arroz", quantity=10, category=category)
 

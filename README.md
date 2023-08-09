@@ -1,3 +1,11 @@
+# Running
+
+`docker-compose build`
+`docker-compose up`
+
+
+
+
 > Copiado de https://github.com/codeedu-tests/fullcycle-tutor-python-test/blob/main/README.md
 
 # Teste para tutor/desenvolvedor Python

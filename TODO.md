@@ -1,5 +1,4 @@
 - [ ] Auth: JWT - APIs are created but unsure how to configure this with rest framework.
-- [ ] `docker-compose up`
 - [ ] Crie dados falsos para categorias e produtos. Crie pelo menos 5 categorias e 150 produtos já previamente cadastrados no banco de dados.
 - [ ] Test pagination (add tests)
 - [ ] Test service
@@ -7,3 +6,5 @@
 - [ ] CD (GitHub Actions) -> Deploy API
 - [ ] Multiple environments configuration (for production, development and test)
 - [ ] Django Rest Framework does not play nice with Products – using `category_id` instead of `category`.
+- [ ] Use a production web server (gunicorn/nginx)
+- [ ] Add initialization safe guards: check database is up before running migration

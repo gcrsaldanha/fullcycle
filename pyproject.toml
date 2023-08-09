@@ -1,0 +1,9 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "stock_system.test_settings"
+
+
+[tool.black]
+line-length = 120
+
+[tool.black.exclude]
+paths = ['migrations']
