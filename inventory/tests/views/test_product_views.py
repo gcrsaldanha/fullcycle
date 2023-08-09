@@ -6,7 +6,7 @@ from inventory.models.product import Product
 
 
 @pytest.mark.django_db
-class TestProductsListCreateView:
+class TestProductsListView:
     def test_when_products_exist_then_returns_list_of_products(
         self,
         client: APIClient,
@@ -52,6 +52,9 @@ class TestProductsListCreateView:
             "meta": {"page": 1},
         }
 
+
+@pytest.mark.django_db
+class TestProductsCreateView:
     def test_when_posting_new_product_then_returns_created_response(
         self,
         client: APIClient,

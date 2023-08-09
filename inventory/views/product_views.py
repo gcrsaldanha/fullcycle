@@ -14,7 +14,7 @@ from inventory.serializers.product_serializers import ProductSerializer, CreateP
 class ProductsListCreateView(ListCreateAPIView):
     pagination_class = CustomPagination
     pagination_serializer_class = PaginationSerializer
-    queryset = Product.objects.prefetch_related("category").all()
+    queryset = Product.objects.prefetch_related("category").all().order_by("name")
     serializer_class = ProductSerializer
 
     def create(self, request, *args, **kwargs):
