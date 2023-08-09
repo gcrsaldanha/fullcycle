@@ -6,6 +6,8 @@ I wasn't able to make the custom JWT work properly, wanted to customize it to us
 
 I also put together a quick [TODO-list](./TODO.md) with next iteration improvements.
 
+Other than authentication, the other API endpoints should have the same contract as described in the [Teste para tutor/desenvolvedor Python](https://github.com/codeedu-tests/fullcycle-tutor-python-test)
+
 
 ## MySQL Database
 
@@ -15,6 +17,7 @@ I had many issues trying to setup a MySQL database – tried both the Django rec
 ## Testing
 
 All tests are under `./tests` folder. I created some functional tests (non-unit for the more purists) for the main features and one end-to-end test, which is in the `e2e` folder.
+
 
 
 # Running on Docker
