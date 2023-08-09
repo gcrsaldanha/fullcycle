@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from inventory import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('categories/', views.CategoriesListCreateView.as_view(), name='categories-list-create'),
 ]

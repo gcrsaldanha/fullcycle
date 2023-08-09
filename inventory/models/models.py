@@ -8,4 +8,4 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-    quantity = models.IntegerField(default=0)
+    quantity = models.IntegerField()
