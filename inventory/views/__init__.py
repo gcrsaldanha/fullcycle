@@ -1,8 +1,8 @@
-from .product_views import ProductsListCreateView, ProductsRetrieveView
+from .product_views import ProductsListCreateView, ProductRetrieveView
 from .category_views import CategoriesListCreateView
 
 __all__ = [
     "ProductsListCreateView",
-    "ProductsRetrieveView",
+    "ProductRetrieveView",
     "CategoriesListCreateView",
 ]

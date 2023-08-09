@@ -1,7 +1,7 @@
 import pytest
 from rest_framework.test import APIClient
 
-from inventory.models.models import Category
+from inventory.models import Category
 
 
 @pytest.mark.django_db
@@ -10,15 +10,15 @@ class TestCategoriesListCreateView:
         self,
         client: APIClient,
     ) -> None:
-        Category.objects.create(name="Alimentos")
-        Category.objects.create(name="Bebidas")
+        category_1 = Category.objects.create(name="Alimentos")
+        category_2 = Category.objects.create(name="Bebidas")
 
         response = client.get("/categories/")
 
         assert response.status_code == 200
         assert response.data == [
-            {"id": 1, "name": "Alimentos"},
-            {"id": 2, "name": "Bebidas"},
+            {"id": category_1.id, "name": "Alimentos"},
+            {"id": category_2.id, "name": "Bebidas"},
         ]
 
     def test_when_posting_new_category_then_returns_created_category(
@@ -28,7 +28,8 @@ class TestCategoriesListCreateView:
         response = client.post("/categories/", {"name": "Alimentos"})
 
         assert response.status_code == 201
-        assert response.data == {"name": "Alimentos"}
+        assert response.data["name"] == "Alimentos"
+        assert response.data["id"] is not None
 
     def test_when_name_is_not_provided_then_returns_bad_request(
         self,

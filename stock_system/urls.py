@@ -21,4 +21,6 @@ from inventory import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('categories/', views.CategoriesListCreateView.as_view(), name='categories-list-create'),
+    path('products/', views.ProductsListCreateView.as_view(), name='products-create'),
+    path('products/<int:pk>/', views.ProductRetrieveView.as_view(), name='products-retrieve'),
 ]
